@@ -1,0 +1,3 @@
+include ':user'
+include ':vendor'
+rootProject.name = "ECommerce"

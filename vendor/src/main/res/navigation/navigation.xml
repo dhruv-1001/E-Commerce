@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/navigation"
+    app:startDestination="@id/vendorLoginFragment">
+
+    <fragment
+        android:id="@+id/vendorLoginFragment"
+        android:name="com.devdhruv.ecommerce.Fragments.Login.VendorLoginFragment"
+        android:label="fragment_vendor_login"
+        tools:layout="@layout/fragment_vendor_login" >
+        <action
+            android:id="@+id/action_vendorLoginFragment_to_vendorUploadFragment"
+            app:destination="@id/vendorUploadFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/vendorUploadFragment"
+        android:name="com.devdhruv.ecommerce.Fragments.Upload.VendorUploadFragment"
+        android:label="fragment_vendor_upload"
+        tools:layout="@layout/fragment_vendor_upload" />
+</navigation>
