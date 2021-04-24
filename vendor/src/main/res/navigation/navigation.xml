@@ -7,7 +7,7 @@
 
     <fragment
         android:id="@+id/vendorLoginFragment"
-        android:name="com.devdhruv.ecommerce.Fragments.Login.VendorLoginFragment"
+        android:name="com.devdhruv.ecommerce.fragment.VendorLoginFragment"
         android:label="fragment_vendor_login"
         tools:layout="@layout/fragment_vendor_login" >
         <action
@@ -16,7 +16,7 @@
     </fragment>
     <fragment
         android:id="@+id/vendorUploadFragment"
-        android:name="com.devdhruv.ecommerce.Fragments.Upload.VendorUploadFragment"
+        android:name="com.devdhruv.ecommerce.fragment.VendorUploadFragment"
         android:label="fragment_vendor_upload"
         tools:layout="@layout/fragment_vendor_upload" />
 </navigation>

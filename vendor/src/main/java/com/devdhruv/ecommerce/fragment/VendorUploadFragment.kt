@@ -1,4 +1,4 @@
-package com.devdhruv.ecommerce.Fragments.Upload
+package com.devdhruv.ecommerce.fragment
 
 import android.os.Bundle
 import androidx.fragment.app.Fragment

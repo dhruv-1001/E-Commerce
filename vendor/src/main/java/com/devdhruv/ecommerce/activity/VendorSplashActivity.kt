@@ -1,4 +1,4 @@
-package com.devdhruv.ecommerce.Activity
+package com.devdhruv.ecommerce.activity
 
 import android.content.Intent
 import android.os.Bundle
@@ -10,6 +10,7 @@ import androidx.appcompat.app.AppCompatActivity
 import com.devdhruv.ecommerce.R
 
 class VendorSplashActivity: AppCompatActivity() {
+
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)

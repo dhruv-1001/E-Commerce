@@ -1,4 +1,4 @@
-package com.devdhruv.ecommerce.Activity
+package com.devdhruv.ecommerce.activity
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle

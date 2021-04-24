@@ -5,4 +5,7 @@
     <string name="create_account"><u>Create Account</u></string>
     <string name="password">Password</string>
     <string name="email_id">Email ID</string>
+    <string name="don_t_have_an_account">Don\'t have an account?</string>
+    <string name="login">LOGIN</string>
+    <string name="login_button">Login</string>
 </resources>
