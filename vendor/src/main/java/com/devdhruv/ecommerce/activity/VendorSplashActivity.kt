@@ -8,9 +8,11 @@ import android.view.Window
 import android.view.WindowManager
 import androidx.appcompat.app.AppCompatActivity
 import com.devdhruv.ecommerce.R
+import com.google.firebase.auth.FirebaseAuth
 
 class VendorSplashActivity: AppCompatActivity() {
 
+    private lateinit var mAuth: FirebaseAuth
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -23,9 +25,14 @@ class VendorSplashActivity: AppCompatActivity() {
             WindowManager.LayoutParams.FLAG_LAYOUT_NO_LIMITS
         )
 
+        mAuth = FirebaseAuth.getInstance()
+
         Handler(Looper.getMainLooper()).postDelayed(
             {
-                startActivity(Intent(applicationContext, VendorMainActivity::class.java))
+                if (mAuth.currentUser != null)
+                    startActivity(Intent(applicationContext, VendorMainActivity::class.java))
+                else
+                    startActivity(Intent(applicationContext, VendorLoginActivity::class.java))
             },
             2500
         )

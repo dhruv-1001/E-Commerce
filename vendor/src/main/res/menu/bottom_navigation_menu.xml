@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <item
+        android:id="@+id/vendorMenuFragment"
+        android:title="@string/menu" />
+    <item
+        android:id="@+id/vendorOrderFragment"
+        android:title="@string/order" />
+    <item
+        android:id="@+id/vendorPayInFragment"
+        android:title="@string/pay_in" />
+    <item
+        android:id="@+id/vendorProfileFragment"
+        android:title="@string/profile" />
+
+</menu>

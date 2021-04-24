@@ -3,20 +3,25 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/navigation"
-    app:startDestination="@id/vendorLoginFragment">
-
+    app:startDestination="@id/vendorMenuFragment">
     <fragment
-        android:id="@+id/vendorLoginFragment"
-        android:name="com.devdhruv.ecommerce.fragment.VendorLoginFragment"
-        android:label="fragment_vendor_login"
-        tools:layout="@layout/fragment_vendor_login" >
-        <action
-            android:id="@+id/action_vendorLoginFragment_to_vendorUploadFragment"
-            app:destination="@id/vendorUploadFragment" />
-    </fragment>
+        android:id="@+id/vendorMenuFragment"
+        android:name="com.devdhruv.ecommerce.fragment.VendorMenuFragment"
+        android:label="fragment_vendor_menu"
+        tools:layout="@layout/fragment_vendor_menu" />
     <fragment
-        android:id="@+id/vendorUploadFragment"
-        android:name="com.devdhruv.ecommerce.fragment.VendorUploadFragment"
-        android:label="fragment_vendor_upload"
-        tools:layout="@layout/fragment_vendor_upload" />
+        android:id="@+id/vendorOrderFragment"
+        android:name="com.devdhruv.ecommerce.fragment.VendorOrderFragment"
+        android:label="fragment_vendor_order"
+        tools:layout="@layout/fragment_vendor_order" />
+    <fragment
+        android:id="@+id/vendorPayInFragment"
+        android:name="com.devdhruv.ecommerce.fragment.VendorPayInFragment"
+        android:label="fragment_vendor_pay_in"
+        tools:layout="@layout/fragment_vendor_pay_in" />
+    <fragment
+        android:id="@+id/vendorProfileFragment"
+        android:name="com.devdhruv.ecommerce.fragment.VendorProfileFragment"
+        android:label="fragment_vendor_profile"
+        tools:layout="@layout/fragment_vendor_profile" />
 </navigation>

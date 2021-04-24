@@ -8,4 +8,14 @@
     <string name="don_t_have_an_account">Don\'t have an account?</string>
     <string name="login">LOGIN</string>
     <string name="login_button">Login</string>
+    <string name="title_activity_vendor_login">VendorLoginActivity</string>
+    <!--
+    This string is used for square devices and overridden by hello_world in
+    values-round/strings.xml for round devices.
+    -->
+    <string name="hello_world">Hello Square World!</string>
+    <string name="profile">Profile</string>
+    <string name="pay_in">Pay-In</string>
+    <string name="order">Order</string>
+    <string name="menu">Menu</string>
 </resources>
