@@ -24,4 +24,5 @@
     <string name="price_amount">Price Amount</string>
     <string name="product_name">Product Name</string>
     <string name="category">Category</string>
+    <string name="gst_amount">GST Amount</string>
 </resources>

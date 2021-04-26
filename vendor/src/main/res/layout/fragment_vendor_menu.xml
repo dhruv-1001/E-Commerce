@@ -44,14 +44,15 @@
 
             <androidx.constraintlayout.widget.ConstraintLayout
                 android:layout_width="100dp"
-                android:layout_height="100dp"
+                android:layout_height="120dp"
                 android:layout_margin="8dp">
 
                 <ImageView
                     android:id="@+id/ivProductImage1"
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
-                    android:background="@drawable/background_image"/>
+                    android:background="@drawable/background_image"
+                    android:scaleType="fitXY" />
 
                 <TextView
                     android:layout_width="wrap_content"
@@ -64,7 +65,8 @@
                     android:textColor="@color/black"
                     android:fontFamily="@font/myriadpro_regular"
                     android:text="@string/upload"
-                    android:textSize="12dp"
+                    android:textSize="12sp"
+                    android:onClick="@{()->vendorMenuViewModel.onImageUploadClick(1)}"
                     android:layout_marginBottom="8dp"
                     app:layout_constraintBottom_toBottomOf="@+id/ivProductImage1"
                     app:layout_constraintEnd_toEndOf="parent"
@@ -74,14 +76,16 @@
 
             <androidx.constraintlayout.widget.ConstraintLayout
                 android:layout_width="100dp"
-                android:layout_height="100dp"
+                android:layout_height="120dp"
                 android:layout_margin="8dp">
 
                 <ImageView
                     android:id="@+id/ivProductImage2"
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
-                    android:background="@drawable/background_image"/>
+                    android:background="@drawable/background_image"
+                    android:cropToPadding="true"
+                    android:scaleType="fitXY" />
 
                 <TextView
                     android:layout_width="wrap_content"
@@ -94,7 +98,8 @@
                     android:textColor="@color/black"
                     android:fontFamily="@font/myriadpro_regular"
                     android:text="@string/upload"
-                    android:textSize="12dp"
+                    android:textSize="12sp"
+                    android:onClick="@{()->vendorMenuViewModel.onImageUploadClick(2)}"
                     android:layout_marginBottom="8dp"
                     app:layout_constraintBottom_toBottomOf="@+id/ivProductImage2"
                     app:layout_constraintEnd_toEndOf="parent"
@@ -104,14 +109,16 @@
 
             <androidx.constraintlayout.widget.ConstraintLayout
                 android:layout_width="100dp"
-                android:layout_height="100dp"
+                android:layout_height="120dp"
                 android:layout_margin="8dp">
 
                 <ImageView
                     android:id="@+id/ivProductImage3"
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
-                    android:background="@drawable/background_image"/>
+                    android:background="@drawable/background_image"
+                    android:cropToPadding="true"
+                    android:scaleType="fitXY" />
 
                 <TextView
                     android:layout_width="wrap_content"
@@ -121,7 +128,8 @@
                     android:paddingTop="4dp"
                     android:paddingRight="12dp"
                     android:paddingBottom="4dp"
-                    android:textSize="12dp"
+                    android:textSize="12sp"
+                    android:onClick="@{()->vendorMenuViewModel.onImageUploadClick(3)}"
                     android:textColor="@color/black"
                     android:fontFamily="@font/myriadpro_regular"
                     android:text="@string/upload"
@@ -158,6 +166,8 @@
                  android:layout_weight="65"
                  android:fontFamily="@font/myriadpro_regular"
                  android:padding="8dp"
+                 android:textSize="16sp"
+                 android:inputType="textNoSuggestions"
                  android:background="@drawable/background_uploadtext"/>
             
         </LinearLayout>
@@ -185,6 +195,8 @@
                 android:layout_height="wrap_content"
                 android:layout_weight="65"
                 android:padding="8dp"
+                android:textSize="16sp"
+                android:inputType="textNoSuggestions"
                 android:background="@drawable/background_uploadtext"/>
 
         </LinearLayout>
@@ -212,6 +224,8 @@
                 android:layout_height="wrap_content"
                 android:layout_weight="65"
                 android:padding="8dp"
+                android:textSize="16sp"
+                android:inputType="number"
                 android:background="@drawable/background_uploadtext"/>
 
         </LinearLayout>
@@ -227,7 +241,7 @@
             <TextView
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
-                android:text="GST Amount"
+                android:text="@string/gst_amount"
                 android:gravity="end"
                 android:paddingRight="16dp"
                 android:layout_weight="35"
@@ -239,6 +253,8 @@
                 android:layout_height="wrap_content"
                 android:layout_weight="65"
                 android:padding="8dp"
+                android:textSize="16sp"
+                android:inputType="number"
                 android:background="@drawable/background_uploadtext"/>
 
         </LinearLayout>
@@ -266,6 +282,8 @@
                 android:layout_height="wrap_content"
                 android:layout_weight="65"
                 android:padding="8dp"
+                android:textSize="16sp"
+                android:inputType="number"
                 android:background="@drawable/background_uploadtext"/>
 
         </LinearLayout>
@@ -293,15 +311,18 @@
                 android:layout_height="wrap_content"
                 android:layout_weight="65"
                 android:padding="8dp"
+                android:textSize="16sp"
+                android:inputType="number"
                 android:background="@drawable/background_uploadtext"/>
 
         </LinearLayout>
 
         <Button
-            android:layout_marginTop="24dp"
+            android:layout_marginTop="16dp"
             android:layout_marginLeft="48dp"
             android:layout_marginRight="48dp"
             android:textSize="16sp"
+            android:onClick="@{()->vendorMenuViewModel.onClickUpload()}"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:background="@drawable/background_button"
