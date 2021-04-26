@@ -18,4 +18,10 @@
     <string name="pay_in">Pay-In</string>
     <string name="order">Order</string>
     <string name="menu">Menu</string>
+    <string name="upload">Upload</string>
+    <string name="offer">Offer(%)</string>
+    <string name="delivery_charge">Delivery Charge</string>
+    <string name="price_amount">Price Amount</string>
+    <string name="product_name">Product Name</string>
+    <string name="category">Category</string>
 </resources>

@@ -9,7 +9,7 @@
     <color name="white">#FFFFFFFF</color>
 
     <color name="vendor_base_color">#13AAE2</color>
-    <color name="vendor_et_color">#707070</color>
+    <color name="vendor_et_text_color">#707070</color>
     <color name="vendor_text_color">#989898</color>
     <color name="vendor_edit_text_background">#EFEFEF</color>
 
