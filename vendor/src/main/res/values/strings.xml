@@ -25,4 +25,6 @@
     <string name="product_name">Product Name</string>
     <string name="category">Category</string>
     <string name="gst_amount">GST Amount</string>
+    <string name="welcome_vendor">Welcome Vendor</string>
+    <string name="add_new">Add New</string>
 </resources>

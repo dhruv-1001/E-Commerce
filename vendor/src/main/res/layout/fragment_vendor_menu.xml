@@ -8,6 +8,7 @@
         <variable
             name="vendorMenuViewModel"
             type="com.devdhruv.ecommerce.viewModel.VendorMenuViewModel" />
+
     </data>
 
     <LinearLayout
@@ -18,7 +19,7 @@
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Welcome Vendor"
+            android:text="@string/welcome_vendor"
             android:layout_gravity="center"
             android:textSize="24sp"
             android:textColor="@color/vendor_text_color"
@@ -28,7 +29,7 @@
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Add New"
+            android:text="@string/add_new"
             android:fontFamily="@font/myriadpro_regular"
             android:layout_gravity="center"
             android:textSize="16sp"
@@ -51,6 +52,7 @@
                     android:id="@+id/ivProductImage1"
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
+                    app:imageUri="@{vendorMenuViewModel.productOneUri}"
                     android:background="@drawable/background_image"
                     android:scaleType="fitXY" />
 
@@ -83,8 +85,8 @@
                     android:id="@+id/ivProductImage2"
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
+                    app:imageUri="@{vendorMenuViewModel.productTwoUri}"
                     android:background="@drawable/background_image"
-                    android:cropToPadding="true"
                     android:scaleType="fitXY" />
 
                 <TextView
@@ -116,8 +118,8 @@
                     android:id="@+id/ivProductImage3"
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
+                    app:imageUri="@{vendorMenuViewModel.productThreeUri}"
                     android:background="@drawable/background_image"
-                    android:cropToPadding="true"
                     android:scaleType="fitXY" />
 
                 <TextView

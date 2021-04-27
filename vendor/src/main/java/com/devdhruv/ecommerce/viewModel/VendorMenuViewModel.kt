@@ -5,23 +5,28 @@ import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import com.devdhruv.ecommerce.R
+import com.google.firebase.storage.FirebaseStorage
+import com.google.firebase.storage.StorageReference
 
-class VendorMenuViewModel: ViewModel() {
+class VendorMenuViewModel(
+    private val firebaseStorage: FirebaseStorage,
+    private val storageReference: StorageReference
+): ViewModel() {
 
     private var _imageClicked =  MutableLiveData<Int?>()
     val imageClicked: LiveData<Int?> get() = _imageClicked
 
-    var productOneImage: Uri = Uri.parse("android.resource://com.devdhruv.ecommerce/" + R.drawable.background_image)
+    private val defaultUri: Uri = Uri.parse("android.resource://com.devdhruv.ecommerce/" + R.drawable.background_image)
 
-    var productTwoImage: Uri = Uri.parse("android.resource://com.devdhruv.ecommerce/" + R.drawable.background_image)
-
-    var productThreeImage: Uri = Uri.parse("android.resource://com.devdhruv.ecommerce/" + R.drawable.background_image)
+    var productOneUri = MutableLiveData(defaultUri)
+    var productTwoUri = MutableLiveData(defaultUri)
+    var productThreeUri = MutableLiveData(defaultUri)
 
     fun changeImage(imageUri: Uri, selectedImage: Int) {
         when (selectedImage){
-            1 -> productOneImage = imageUri
-            2 -> productTwoImage = imageUri
-            else -> productThreeImage = imageUri
+            1 -> productOneUri.value = imageUri
+            2 -> productTwoUri.value = imageUri
+            else -> productThreeUri.value = imageUri
         }
     }
 
@@ -29,8 +34,15 @@ class VendorMenuViewModel: ViewModel() {
         _imageClicked.value = index
     }
 
-    fun onClickUpload(){
 
+    private fun checkFields(): Boolean{
+        return true
+    }
+
+    fun onClickUpload(){
+        if (checkFields()){
+
+        }
     }
 
 }

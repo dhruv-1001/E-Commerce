@@ -21,9 +21,8 @@ import com.google.firebase.storage.StorageReference
 
 class VendorMenuFragment : Fragment() {
 
-    lateinit var imageUri: Uri
     var selectedImage = 1
-    lateinit var firebseStorage: FirebaseStorage
+    lateinit var firebaseStorage: FirebaseStorage
     lateinit var storageReference: StorageReference
     lateinit var viewModel: VendorMenuViewModel
 
@@ -36,10 +35,10 @@ class VendorMenuFragment : Fragment() {
             inflater, R.layout.fragment_vendor_menu, container, false
         )
 
-        firebseStorage = FirebaseStorage.getInstance()
-        storageReference = firebseStorage.reference
+        firebaseStorage = FirebaseStorage.getInstance()
+        storageReference = firebaseStorage.reference
 
-        val viewModelFactory = VendorMenuViewModelFactory()
+        val viewModelFactory = VendorMenuViewModelFactory(firebaseStorage, storageReference)
         viewModel = ViewModelProvider(this, viewModelFactory).get(VendorMenuViewModel::class.java)
 
         binding.vendorMenuViewModel = viewModel
@@ -67,13 +66,7 @@ class VendorMenuFragment : Fragment() {
     override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {
         super.onActivityResult(requestCode, resultCode, data)
         if (requestCode == 1 && resultCode == RESULT_OK && data != null){
-            imageUri = data.data!!
-            viewModel.changeImage(imageUri, selectedImage)
-            when (selectedImage) {
-                1 -> view?.findViewById<ImageView>(R.id.ivProductImage1)?.setImageURI(imageUri)
-                2 -> view?.findViewById<ImageView>(R.id.ivProductImage2)?.setImageURI(imageUri)
-                else -> view?.findViewById<ImageView>(R.id.ivProductImage3)?.setImageURI(imageUri)
-            }
+            viewModel.changeImage(data.data!!, selectedImage)
         }
     }
 
