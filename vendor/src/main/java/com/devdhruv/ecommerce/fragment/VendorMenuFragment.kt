@@ -2,12 +2,11 @@ package com.devdhruv.ecommerce.fragment
 
 import android.app.Activity.RESULT_OK
 import android.content.Intent
-import android.net.Uri
 import android.os.Bundle
+import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.widget.ImageView
 import androidx.databinding.DataBindingUtil
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.ViewModelProvider
@@ -15,6 +14,7 @@ import com.devdhruv.ecommerce.R
 import com.devdhruv.ecommerce.databinding.FragmentVendorMenuBinding
 import com.devdhruv.ecommerce.viewModel.VendorMenuViewModel
 import com.devdhruv.ecommerce.viewModel.VendorMenuViewModelFactory
+import com.google.android.material.snackbar.Snackbar
 import com.google.firebase.storage.FirebaseStorage
 import com.google.firebase.storage.StorageReference
 
@@ -22,8 +22,9 @@ import com.google.firebase.storage.StorageReference
 class VendorMenuFragment : Fragment() {
 
     var selectedImage = 1
-    lateinit var firebaseStorage: FirebaseStorage
-    lateinit var storageReference: StorageReference
+    var firebaseStorage: FirebaseStorage = FirebaseStorage.getInstance()
+    var storageReference: StorageReference = firebaseStorage.reference
+
     lateinit var viewModel: VendorMenuViewModel
 
     override fun onCreateView(
@@ -34,9 +35,6 @@ class VendorMenuFragment : Fragment() {
         val binding: FragmentVendorMenuBinding = DataBindingUtil.inflate(
             inflater, R.layout.fragment_vendor_menu, container, false
         )
-
-        firebaseStorage = FirebaseStorage.getInstance()
-        storageReference = firebaseStorage.reference
 
         val viewModelFactory = VendorMenuViewModelFactory(firebaseStorage, storageReference)
         viewModel = ViewModelProvider(this, viewModelFactory).get(VendorMenuViewModel::class.java)
@@ -50,6 +48,11 @@ class VendorMenuFragment : Fragment() {
             }
             choosePicture()
         })
+
+        viewModel.blankFields.observe(viewLifecycleOwner, {
+            Snackbar.make(requireView(), "Enter All The Fields", Snackbar.LENGTH_SHORT).show()
+        })
+
         return binding.root
     }
 

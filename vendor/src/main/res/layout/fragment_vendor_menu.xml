@@ -169,6 +169,7 @@
                  android:fontFamily="@font/myriadpro_regular"
                  android:padding="8dp"
                  android:textSize="16sp"
+                 android:text="@={vendorMenuViewModel.category}"
                  android:inputType="textNoSuggestions"
                  android:background="@drawable/background_uploadtext"/>
             
@@ -198,6 +199,7 @@
                 android:layout_weight="65"
                 android:padding="8dp"
                 android:textSize="16sp"
+                android:text="@={vendorMenuViewModel.productName}"
                 android:inputType="textNoSuggestions"
                 android:background="@drawable/background_uploadtext"/>
 
@@ -227,6 +229,7 @@
                 android:layout_weight="65"
                 android:padding="8dp"
                 android:textSize="16sp"
+                android:text="@={vendorMenuViewModel.priceAmt}"
                 android:inputType="number"
                 android:background="@drawable/background_uploadtext"/>
 
@@ -256,6 +259,7 @@
                 android:layout_weight="65"
                 android:padding="8dp"
                 android:textSize="16sp"
+                android:text="@={vendorMenuViewModel.gstAmt}"
                 android:inputType="number"
                 android:background="@drawable/background_uploadtext"/>
 
@@ -285,6 +289,7 @@
                 android:layout_weight="65"
                 android:padding="8dp"
                 android:textSize="16sp"
+                android:text="@={vendorMenuViewModel.deliveryCharge}"
                 android:inputType="number"
                 android:background="@drawable/background_uploadtext"/>
 
@@ -314,6 +319,7 @@
                 android:layout_weight="65"
                 android:padding="8dp"
                 android:textSize="16sp"
+                android:text="@={vendorMenuViewModel.offer}"
                 android:inputType="number"
                 android:background="@drawable/background_uploadtext"/>
 
