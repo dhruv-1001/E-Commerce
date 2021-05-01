@@ -22,8 +22,6 @@ import com.google.firebase.storage.StorageReference
 class VendorMenuFragment : Fragment() {
 
     var selectedImage = 1
-    var firebaseStorage: FirebaseStorage = FirebaseStorage.getInstance()
-    var storageReference: StorageReference = firebaseStorage.reference
 
     lateinit var viewModel: VendorMenuViewModel
 
@@ -36,7 +34,7 @@ class VendorMenuFragment : Fragment() {
             inflater, R.layout.fragment_vendor_menu, container, false
         )
 
-        val viewModelFactory = VendorMenuViewModelFactory(firebaseStorage, storageReference)
+        val viewModelFactory = VendorMenuViewModelFactory()
         viewModel = ViewModelProvider(this, viewModelFactory).get(VendorMenuViewModel::class.java)
 
         binding.vendorMenuViewModel = viewModel
@@ -50,7 +48,7 @@ class VendorMenuFragment : Fragment() {
         })
 
         viewModel.blankFields.observe(viewLifecycleOwner, {
-            Snackbar.make(requireView(), "Enter All The Fields", Snackbar.LENGTH_SHORT).show()
+            Snackbar.make(requireView(), viewModel.errorOccurred.value.toString(), Snackbar.LENGTH_SHORT).show()
         })
 
         return binding.root
