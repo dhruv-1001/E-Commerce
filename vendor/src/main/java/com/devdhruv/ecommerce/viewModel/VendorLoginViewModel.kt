@@ -24,7 +24,7 @@ class VendorLoginViewModel(
     fun onLoginClick(){
 
         if(!checkFields()) return
-        auth.signInWithEmailAndPassword(emailId.value, password.value)
+        auth.signInWithEmailAndPassword(emailId.value.toString(), password.value.toString())
             .addOnSuccessListener {
                 _navigateToUpload.value = true
             }
