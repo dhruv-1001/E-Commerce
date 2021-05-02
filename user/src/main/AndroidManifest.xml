@@ -9,6 +9,7 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.ECommerce">
+        <activity android:name=".Activity.UserAuthActivity"></activity>
         <activity android:name=".Activity.UserMainActivity" />
         <activity android:name=".Activity.UserSplashActivity">
             <intent-filter>

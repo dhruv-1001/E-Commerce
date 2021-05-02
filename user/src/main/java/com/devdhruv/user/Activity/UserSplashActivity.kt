@@ -8,8 +8,12 @@ import android.os.Looper
 import android.view.Window
 import android.view.WindowManager
 import com.devdhruv.user.R
+import com.google.firebase.auth.FirebaseAuth
 
 class UserSplashActivity : AppCompatActivity() {
+
+    val auth: FirebaseAuth = FirebaseAuth.getInstance()
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_user_splash)
@@ -23,7 +27,12 @@ class UserSplashActivity : AppCompatActivity() {
 
         Handler(Looper.getMainLooper()).postDelayed(
             {
-                startActivity(Intent(applicationContext, UserMainActivity::class.java))
+                if (auth.currentUser != null){
+                    startActivity(Intent(applicationContext, UserMainActivity::class.java))
+                }
+                else{
+                    startActivity(Intent(applicationContext, UserAuthActivity::class.java))
+                }
             },
             2500
         )
