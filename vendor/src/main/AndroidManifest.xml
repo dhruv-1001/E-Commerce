@@ -12,9 +12,13 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.ECommerce">
-        <activity android:name="com.devdhruv.ecommerce.activity.VendorLoginActivity"/>
-        <activity android:name="com.devdhruv.ecommerce.activity.VendorMainActivity" />
-        <activity android:name="com.devdhruv.ecommerce.activity.VendorSplashActivity">
+        <activity
+            android:name="com.devdhruv.ecommerce.activity.VendorLoginActivity"/>
+        <activity
+            android:name="com.devdhruv.ecommerce.activity.VendorMainActivity"/>
+        <activity
+            android:name="com.devdhruv.ecommerce.activity.VendorSplashActivity"
+            android:noHistory="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 

@@ -36,7 +36,7 @@ class UserLoginFragment : Fragment() {
             findNavController().navigate(R.id.action_userLoginFragment_to_userRegisterFragment)
         })
 
-        viewModel.navigateToMainActivity.observe(viewLifecycleOwner,{
+        viewModel.navigateToMainActivity.observe(viewLifecycleOwner, {
             if (it == true)
                 startActivity(Intent(activity, UserMainActivity::class.java))
         })

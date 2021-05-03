@@ -9,9 +9,13 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.ECommerce">
-        <activity android:name=".Activity.UserAuthActivity"></activity>
-        <activity android:name=".Activity.UserMainActivity" />
-        <activity android:name=".Activity.UserSplashActivity">
+        <activity
+            android:name=".Activity.UserAuthActivity" />
+        <activity
+            android:name=".Activity.UserMainActivity" />
+        <activity
+            android:name=".Activity.UserSplashActivity"
+            android:noHistory="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
