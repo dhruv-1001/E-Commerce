@@ -6,8 +6,11 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.databinding.DataBindingUtil
+import androidx.lifecycle.ViewModelProvider
 import com.devdhruv.user.R
 import com.devdhruv.user.databinding.FragmentProductBinding
+import com.devdhruv.user.viewModels.ProductViewModel
+import com.devdhruv.user.viewModels.ProductViewModelFactory
 
 class ProductFragment : Fragment() {
 
@@ -19,6 +22,9 @@ class ProductFragment : Fragment() {
         val binding: FragmentProductBinding = DataBindingUtil.inflate(
             inflater, R.layout.fragment_product, container, false
         )
+
+        val viewModelFactory = ProductViewModelFactory()
+        val viewModel = ViewModelProvider(this, ProductViewModelFactory()).get(ProductViewModel::class.java)
 
         return binding.root
     }
