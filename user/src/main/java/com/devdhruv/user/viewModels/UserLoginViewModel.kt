@@ -5,7 +5,7 @@ import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import com.google.firebase.auth.FirebaseAuth
 
-class UserLoginViewModel: ViewModel() {
+class UserLoginViewModel : ViewModel() {
 
     private val auth: FirebaseAuth = FirebaseAuth.getInstance()
 
@@ -18,14 +18,14 @@ class UserLoginViewModel: ViewModel() {
     val emailId = MutableLiveData<String>()
     val password = MutableLiveData<String>()
 
-    fun checkFields(): Boolean{
+    fun checkFields(): Boolean {
         if (emailId.value.isNullOrBlank()) return false
         if (password.value.isNullOrBlank()) return false
         return true
     }
 
-    fun login(){
-        if (checkFields()){
+    fun login() {
+        if (checkFields()) {
             auth.signInWithEmailAndPassword(emailId.value.toString(), password.value.toString())
                 .addOnSuccessListener {
                     _navigateToMainActivity.value = true
@@ -33,7 +33,7 @@ class UserLoginViewModel: ViewModel() {
         }
     }
 
-    fun onNavigateClick(){
+    fun onNavigateClick() {
         _navigateToRegister.value = _navigateToRegister.value == false
     }
 

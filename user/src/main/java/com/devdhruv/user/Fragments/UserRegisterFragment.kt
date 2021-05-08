@@ -27,7 +27,8 @@ class UserRegisterFragment : Fragment() {
         )
 
         val viewModelFactory = UserRegisterViewModelFactory()
-        val viewModel = ViewModelProvider(this, viewModelFactory).get(UserRegisterViewModel::class.java)
+        val viewModel =
+            ViewModelProvider(this, viewModelFactory).get(UserRegisterViewModel::class.java)
 
         binding.userRegisterViewModel = viewModel
         binding.lifecycleOwner = this

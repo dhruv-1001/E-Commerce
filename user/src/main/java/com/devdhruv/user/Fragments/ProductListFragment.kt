@@ -24,7 +24,8 @@ class ProductListFragment : Fragment() {
         )
 
         val viewModelFactory = ProductListViewModelFactory()
-        val viewModel = ViewModelProvider(this, viewModelFactory).get(ProductListViewModel::class.java)
+        val viewModel =
+            ViewModelProvider(this, viewModelFactory).get(ProductListViewModel::class.java)
 
 
 

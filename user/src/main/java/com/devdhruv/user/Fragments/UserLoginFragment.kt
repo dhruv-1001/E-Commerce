@@ -27,7 +27,8 @@ class UserLoginFragment : Fragment() {
         )
 
         val viewModelFactory = UserLoginViewModelFactory()
-        val viewModel = ViewModelProvider(this, viewModelFactory).get(UserLoginViewModel::class.java)
+        val viewModel =
+            ViewModelProvider(this, viewModelFactory).get(UserLoginViewModel::class.java)
 
         binding.userLoginViewModel = viewModel
         binding.lifecycleOwner = this

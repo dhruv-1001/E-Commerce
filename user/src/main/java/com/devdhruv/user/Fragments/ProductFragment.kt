@@ -24,7 +24,8 @@ class ProductFragment : Fragment() {
         )
 
         val viewModelFactory = ProductViewModelFactory()
-        val viewModel = ViewModelProvider(this, ProductViewModelFactory()).get(ProductViewModel::class.java)
+        val viewModel =
+            ViewModelProvider(this, ProductViewModelFactory()).get(ProductViewModel::class.java)
 
         return binding.root
     }
