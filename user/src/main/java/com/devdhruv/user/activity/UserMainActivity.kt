@@ -1,4 +1,4 @@
-package com.devdhruv.user.Activity
+package com.devdhruv.user.activity
 
 import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity

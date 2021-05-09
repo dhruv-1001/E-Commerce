@@ -1,4 +1,4 @@
-package com.devdhruv.user.Fragments
+package com.devdhruv.user.fragments
 
 import android.content.Intent
 import android.os.Bundle
@@ -9,7 +9,7 @@ import androidx.databinding.DataBindingUtil
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.ViewModelProvider
 import androidx.navigation.fragment.findNavController
-import com.devdhruv.user.Activity.UserMainActivity
+import com.devdhruv.user.activity.UserMainActivity
 import com.devdhruv.user.R
 import com.devdhruv.user.databinding.FragmentUserLoginBinding
 import com.devdhruv.user.viewModels.UserLoginViewModel

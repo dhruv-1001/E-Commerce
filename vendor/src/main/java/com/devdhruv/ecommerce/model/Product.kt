@@ -1,7 +1,5 @@
 package com.devdhruv.ecommerce.model
 
-import android.net.Uri
-
 data class Product(
     var category: String = "",
     var productName: String = "",

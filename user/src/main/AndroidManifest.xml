@@ -10,11 +10,11 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.ECommerce">
         <activity
-            android:name=".Activity.UserAuthActivity" />
+            android:name=".activity.UserAuthActivity" />
         <activity
-            android:name=".Activity.UserMainActivity" />
+            android:name=".activity.UserMainActivity" />
         <activity
-            android:name=".Activity.UserSplashActivity"
+            android:name=".activity.UserSplashActivity"
             android:noHistory="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
