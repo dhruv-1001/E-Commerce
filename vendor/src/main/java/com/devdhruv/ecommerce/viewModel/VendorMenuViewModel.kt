@@ -147,9 +147,16 @@ class VendorMenuViewModel: ViewModel() {
 
         val productId: String = user.uid + productName.value.toString() + SimpleDateFormat("yyyyMMdd_HHmmss").format(Date())
 
-        database.reference.child("products").child(productId).setValue(product)
-        updateErrorMessage("Success")
-        resetFields()
+        database.reference
+            .child("products")
+            .child(productId)
+            .setValue(product)
+            .addOnSuccessListener {
+
+                updateErrorMessage("Success")
+                resetFields()
+
+            }
 
     }
 
