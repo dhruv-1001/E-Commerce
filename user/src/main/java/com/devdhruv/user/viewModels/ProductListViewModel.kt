@@ -1,12 +1,34 @@
 package com.devdhruv.user.viewModels
 
+import android.util.Log
+import androidx.lifecycle.LiveData
+import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
-import com.google.firebase.database.DatabaseReference
-import com.google.firebase.database.FirebaseDatabase
+import com.devdhruv.user.model.Product
+import com.google.firebase.database.*
 
 
 class ProductListViewModel: ViewModel() {
 
-    val database: DatabaseReference = FirebaseDatabase.getInstance().reference
+    var products: MutableLiveData<List<Product>> = MutableLiveData()
+
+    fun getProductData(){
+        Log.d("Fetching Data", "From Database")
+        if (products.value == null){
+            FirebaseDatabase.getInstance().getReference("products").get().addOnCompleteListener { task ->
+                var temp: List<Product>? = null
+                if (task.isSuccessful){
+                    val result = task.result
+                    result?.let {
+                        temp = result.children.map { snapShot->
+                            snapShot.getValue(Product::class.java)!!
+                        }
+                    }
+                }
+                products.value = temp
+            }
+        }
+    }
 
 }
+

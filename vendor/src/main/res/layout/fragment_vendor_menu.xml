@@ -8,7 +8,6 @@
         <variable
             name="vendorMenuViewModel"
             type="com.devdhruv.ecommerce.viewModel.VendorMenuViewModel" />
-
     </data>
 
     <LinearLayout

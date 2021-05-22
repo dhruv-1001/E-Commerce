@@ -8,3 +8,4 @@ import androidx.databinding.BindingAdapter
 fun bindImage(imgView: ImageView, imgUri: Uri){
     imgView.setImageURI(imgUri)
 }
+
