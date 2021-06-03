@@ -2,15 +2,17 @@ package com.devdhruv.user.fragments
 
 import android.os.Bundle
 import android.util.Log
-import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.databinding.DataBindingUtil
-import androidx.lifecycle.Observer
+import androidx.fragment.app.Fragment
 import androidx.lifecycle.ViewModelProvider
 import com.devdhruv.user.R
+import com.devdhruv.user.adapters.ProductClickListener
+import com.devdhruv.user.adapters.ProductListAdapter
 import com.devdhruv.user.databinding.FragmentProductListBinding
+import com.devdhruv.user.model.Product
 import com.devdhruv.user.viewModels.ProductListViewModel
 import com.devdhruv.user.viewModels.ProductListViewModelFactory
 
@@ -28,14 +30,27 @@ class ProductListFragment : Fragment() {
         val viewModelFactory = ProductListViewModelFactory()
         val viewModel = ViewModelProvider(this, viewModelFactory).get(ProductListViewModel::class.java)
 
+        binding.productListViewModel = viewModel
+
+        val productAdapter = ProductListAdapter(ProductClickListener {
+            product -> navigateToProduct(product)
+        })
+
+        binding.productList.adapter = productAdapter
+
         viewModel.getProductData()
 
         viewModel.products.observe(viewLifecycleOwner, {
-            for (i in it){
-                Log.d("Product Name", i.productName)
+            it.let {
+                productAdapter.submitList(it)
             }
         })
 
         return binding.root
     }
+
+    private fun navigateToProduct(product: Product){
+
+    }
+
 }
