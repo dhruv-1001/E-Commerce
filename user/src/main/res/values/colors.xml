@@ -10,5 +10,6 @@
     
     <color name="user_base_color">#F3AA4E</color>
     <color name="user_et_color">#707070</color>
+    <color name="user_text_color">#989898</color>
     
 </resources>

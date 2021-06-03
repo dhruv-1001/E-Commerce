@@ -5,12 +5,21 @@ import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import com.devdhruv.user.model.Product
-import com.google.firebase.database.*
+import com.google.firebase.database.FirebaseDatabase
 
 
 class ProductListViewModel: ViewModel() {
 
     var products: MutableLiveData<List<Product>> = MutableLiveData()
+    var selectedProduct: MutableLiveData<Product> = MutableLiveData()
+
+    private var _navigateToProduct = MutableLiveData<Boolean>()
+    val navigateToProduct: LiveData<Boolean> get() = _navigateToProduct
+
+    fun setSelectedProduct(product: Product){
+        selectedProduct.value = product
+        _navigateToProduct.value = _navigateToProduct.value == false
+    }
 
     fun getProductData(){
         Log.d("Fetching Data", "From Database")
@@ -29,6 +38,5 @@ class ProductListViewModel: ViewModel() {
             }
         }
     }
-
 }
 

@@ -1,13 +1,13 @@
 package com.devdhruv.user.fragments
 
 import android.os.Bundle
-import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.databinding.DataBindingUtil
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.ViewModelProvider
+import androidx.navigation.fragment.findNavController
 import com.devdhruv.user.R
 import com.devdhruv.user.adapters.ProductClickListener
 import com.devdhruv.user.adapters.ProductListAdapter
@@ -33,7 +33,7 @@ class ProductListFragment : Fragment() {
         binding.productListViewModel = viewModel
 
         val productAdapter = ProductListAdapter(ProductClickListener {
-            product -> navigateToProduct(product)
+            product -> viewModel.setSelectedProduct(product)
         })
 
         binding.productList.adapter = productAdapter
@@ -46,11 +46,11 @@ class ProductListFragment : Fragment() {
             }
         })
 
+        viewModel.navigateToProduct.observe(viewLifecycleOwner, {
+            findNavController().navigate(R.id.action_productListFragment_to_productFragment)
+        })
+
         return binding.root
-    }
-
-    private fun navigateToProduct(product: Product){
-
     }
 
 }
