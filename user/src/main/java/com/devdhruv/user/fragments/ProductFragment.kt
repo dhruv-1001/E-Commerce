@@ -19,7 +19,7 @@ class ProductFragment : Fragment() {
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
-
+        setHasOptionsMenu(true)
         val binding: FragmentProductBinding = DataBindingUtil.inflate(
             inflater, R.layout.fragment_product, container, false
         )
@@ -31,6 +31,7 @@ class ProductFragment : Fragment() {
 
         Log.d("Product", viewModel.selectedProduct.value?.productName.toString())
 
-        return binding?.root
+        return binding.root
     }
+
 }

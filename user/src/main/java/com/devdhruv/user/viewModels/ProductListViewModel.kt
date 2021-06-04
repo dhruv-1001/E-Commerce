@@ -13,12 +13,13 @@ class ProductListViewModel: ViewModel() {
     var products: MutableLiveData<List<Product>> = MutableLiveData()
     var selectedProduct: MutableLiveData<Product> = MutableLiveData()
 
-    private var _navigateToProduct = MutableLiveData<Boolean>()
+    private var _navigateToProduct = MutableLiveData(false)
     val navigateToProduct: LiveData<Boolean> get() = _navigateToProduct
 
     fun setSelectedProduct(product: Product){
         selectedProduct.value = product
-        _navigateToProduct.value = _navigateToProduct.value == false
+        _navigateToProduct.value = true
+        _navigateToProduct.value = false
     }
 
     fun getProductData(){

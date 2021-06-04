@@ -47,7 +47,7 @@ class ProductListFragment : Fragment() {
         })
 
         viewModel.navigateToProduct.observe(viewLifecycleOwner, {
-            findNavController().navigate(R.id.action_productListFragment_to_productFragment)
+            if (it) findNavController().navigate(R.id.action_productListFragment_to_productFragment)
         })
 
         return binding.root

@@ -21,6 +21,8 @@
         tools:layout="@layout/fragment_product" >
         <action
             android:id="@+id/action_productFragment_to_productListFragment"
-            app:destination="@id/productListFragment" />
+            app:destination="@id/productListFragment"
+            app:popUpTo="@id/productListFragment"
+            app:popUpToInclusive="true" />
     </fragment>
 </navigation>
