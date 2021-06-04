@@ -6,6 +6,7 @@ import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import com.devdhruv.ecommerce.R
 import com.devdhruv.ecommerce.model.Product
+import com.google.android.gms.tasks.OnSuccessListener
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.database.FirebaseDatabase
 import com.google.firebase.storage.FirebaseStorage
@@ -91,23 +92,30 @@ class VendorMenuViewModel: ViewModel() {
 
         val fileName: String = user?.uid + "_" + SimpleDateFormat("yyyyMMdd_HHmmss").format(Date()) + imageNumber.toString()
         val fileReference: StorageReference = imageReference.child(fileName)
-        val uploadTask: UploadTask
 
-        when (imageNumber){
-            1 -> uploadTask = productOneUri.value?.let { fileReference.putFile(it) }!!
-            2 -> uploadTask = productTwoUri.value?.let { fileReference.putFile(it) }!!
-            else -> uploadTask = productTwoUri.value?.let { fileReference.putFile(it)}!!
+        val uploadTask: UploadTask = when (imageNumber){
+            1 -> productOneUri.value?.let { fileReference.putFile(it) }!!
+            2 -> productTwoUri.value?.let { fileReference.putFile(it) }!!
+            else -> productTwoUri.value?.let { fileReference.putFile(it)}!!
         }
 
         uploadTask.addOnSuccessListener {
-            when (imageNumber) {
-                1 -> downloadOneUri = it.uploadSessionUri.toString()
-                2 -> downloadTwoUri = it.uploadSessionUri.toString()
-                else -> {
-                    downloadThreeUri = it.uploadSessionUri.toString()
-                    uploadData()
+
+            var downloadUri = ""
+            fileReference.downloadUrl.addOnSuccessListener {
+                downloadUri = it.toString()
+                when (imageNumber) {
+                    1 -> downloadOneUri = downloadUri
+                    2 -> downloadTwoUri = downloadUri
+                    else -> {
+                        downloadThreeUri = downloadUri
+                        uploadData()
+                    }
                 }
+            }.addOnFailureListener {
+                updateErrorMessage(it.message.toString())
             }
+
             uploadImage(imageNumber + 1)
         }.addOnFailureListener {
                 updateErrorMessage(it.message.toString())

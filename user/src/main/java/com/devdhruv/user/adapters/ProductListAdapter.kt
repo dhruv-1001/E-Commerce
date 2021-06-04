@@ -2,11 +2,15 @@ package com.devdhruv.user.adapters
 
 import android.view.LayoutInflater
 import android.view.ViewGroup
+import androidx.core.net.toUri
 import androidx.recyclerview.widget.DiffUtil
 import androidx.recyclerview.widget.ListAdapter
 import androidx.recyclerview.widget.RecyclerView
+import com.bumptech.glide.Glide
+import com.devdhruv.user.R
 import com.devdhruv.user.databinding.ProductItemBinding
 import com.devdhruv.user.model.Product
+import com.squareup.picasso.Picasso
 
 class ProductListAdapter (
     private val clickListener: ProductClickListener
@@ -28,6 +32,18 @@ class ProductListAdapter (
         fun bind(item: Product, clickListener: ProductClickListener) {
             binding.product = item
             binding.clickListener = clickListener
+
+//            Picasso.get().load(item.imageOneUri.toUri())
+//                .placeholder(R.drawable.background_image)
+//                .fit()
+//                .error(R.drawable.button_background)
+//                .centerCrop()
+//                .into(binding.productImage)
+
+            Glide.with(binding.productImage)
+                .load(item.imageOneUri)
+                .into(binding.productImage)
+
             binding.executePendingBindings()
         }
 

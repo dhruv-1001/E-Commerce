@@ -1,9 +1,10 @@
 package com.devdhruv.user
 
-import android.util.Log
 import android.widget.ImageView
 import android.widget.TextView
+import androidx.core.net.toUri
 import androidx.databinding.BindingAdapter
+import com.bumptech.glide.Glide
 import com.devdhruv.user.model.Product
 import com.squareup.picasso.Picasso
 
@@ -28,14 +29,15 @@ fun TextView.productPrice(item: Product){
     }
 }
 
-@BindingAdapter("productImage")
-fun productImage(imgView: ImageView, item: Product){
-
-    Picasso.get()
-        .load(item.imageOneUri)
-        .placeholder(R.drawable.background_image)
-        .fit()
-        .centerCrop()
-        .into(imgView)
-
-}
+//@BindingAdapter("productImage")
+//fun productImage(imgView: ImageView, item: Product){
+//
+//    Picasso.get()
+//        .load(item.imageOneUri.toUri())
+//        .placeholder(R.drawable.background_image)
+//        .fit()
+//        .error(R.drawable.button_background)
+//        .centerCrop()
+//        .into(imgView)
+//
+//}
